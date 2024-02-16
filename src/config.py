@@ -42,29 +42,30 @@ def config():
     mp = ""
     printc("[green][+] A [bold]MASTER PASSWORD[/bold] is the only password you will need to remember in-order to access all your other passwords. Choosing a strong [bold]MASTER PASSWORD[/bold] is essential because all your other passwords will be [bold]encrypted[/bold] with a key that is derived from your [bold]MASTER PASSWORD[/bold]. Therefore, please choose a strong one that has upper and lower case characters, numbers and also special characters. Remember your [bold]MASTER PASSWORD[/bold] because it won't be stored anywhere by this program, and you also cannot change it once chosen. [/green]\n")
 
-while 1:
+    while 1:
         mp = getpass("choose a MASTER PASSWORD:")
         if mp == getpass("Re-type:") and mp!="":
             break
         
 #Hash the master password
-hashed_mp = hashlib.sha256(mp.encode()).hexdigest()
-printc("[green][+][/green] Generated hash of MASTER PASSWORD")
+    hashed_mp = hashlib.sha256(mp.encode()).hexdigest()
+    printc("[green][+][/green] Generated hash of MASTER PASSWORD")
 
 # generate a device secret
-ds = generateDeviceSecret()
-printc("[green][+][/green] Device Secret generated")
+    ds = generateDeviceSecret()
+    printc("[green][+][/green] Device Secret generated")
 
 #Add them to db
-query = "INSERT INTO pm.secrets (masterkey_hash, device_secret) values (%s, %s)"
-val = (hashed_mp, ds)
-cursor.execute(query, val)
-db.commit()
+    query = "INSERT INTO pm.secrets (masterkey_hash, device_secret) values (%s, %s)"
+    val = (hashed_mp, ds)
 
-printc("[green][+][/green] Added to the Database")
+    cursor.execute(query, val)
+    db.commit()
 
-printc("[green][+] Configuration done! [/green]")
+    printc("[green][+][/green] Added to the Database")
 
-db.close()
+    printc("[green][+] Configuration done! [/green]")
+
+    db.close()
 
 config()
