@@ -14,5 +14,5 @@ def dbconfig():
         )
         return db
     except Exception as e:
-        print("An error occurred while connecting to the database:", e)
+        printc("An error occurred while connecting to the database:", e)
         return None
