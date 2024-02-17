@@ -38,6 +38,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'pm'@localhost IDENTIFIED BY 'password';
 ### Pyperclip
 [Pyperclip](https://pypi.org/project/pyperclip/) is a python module used to copy data to the clipboard. If you get a "not implemented error", follow this simple fix: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
 
+## Windows
+### Install Python Requirements
+```pip install -r requirements.txt```
 
 ### MariaDB
 #### Install
@@ -59,4 +62,3 @@ CREATE USER 'pm'@localhost IDENTIFIED BY 'password';
 ```
 GRANT ALL PRIVILEGES ON *.* TO 'pm'@localhost IDENTIFIED BY 'password';
 ```
-
