@@ -3,12 +3,11 @@ from getpass import getpass
 import hashlib
 import pyperclip
 
-from rich import print as printc
-
-import utils.add
-import utils.retrieve
-import utils.generate
+import utils.add as add
+import utils.retrieve as retrieve
+import utils.generate as generate
 from utils.dbconfig import dbconfig
+from rich import print as printc
 
 parser = argparse.ArgumentParser(description='Description')
 
