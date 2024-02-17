@@ -1,5 +1,5 @@
-from utils.dbconfig import dbconfig
-import utils.aesutil
+from dbconfig import dbconfig
+import aesutil
 import pyperclip
 
 from Crypto.Protocol.KDF import PBKDF2
@@ -57,7 +57,7 @@ def retrieveEntries(mp,ds, search, decryptPassword = False):
     
     if len(results)==1 and decryptPassword:
         mk = computeMasterKey(mp, ds)
-        decrypted = utils.aesutil.decrypt(key=mk, source=results[0][4], keyType="bytes" )
+        decrypted = aesutil.decrypt(key=mk, source=results[0][4], keyType="bytes" )
         
         pyperclip.copy(decrypted.decode())
         printc("[green][+][/green] Password copied to clipboard")

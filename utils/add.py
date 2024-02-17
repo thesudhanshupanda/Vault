@@ -1,5 +1,5 @@
-from utils.dbconfig import dbconfig
-import utils.aesutil
+from dbconfig import dbconfig
+import aesutil
 from getpass import getpass
 
 from Crypto.Protocol.KDF import PBKDF2

@@ -5,10 +5,10 @@ import pyperclip
 
 from rich import print as printc
 
-import utils.add
-import utils.retrieve
-import utils.generate
-from utils.dbconfig import dbconfig
+import add
+import retrieve
+import generate
+from dbconfig import dbconfig
 
 parser = argparse.ArgumentParser(description='Description')
 
@@ -56,7 +56,7 @@ def main():
 
 		res = inputAndValidateMasterPassword()
 		if res is not None:
-			utils.add.addEntry(res[0],res[1],args.name,args.url,args.email,args.login)
+			add.addEntry(res[0],res[1],args.name,args.url,args.email,args.login)
 
 
 	if args.option in ["extract","e"]:
@@ -77,14 +77,14 @@ def main():
 			search["username"] = args.login
 
 		if res is not None:
-			utils.retrieve.retrieveEntries(res[0],res[1],search,decryptPassword = args.copy)
+			retrieve.retrieveEntries(res[0],res[1],search,decryptPassword = args.copy)
 
 
 	if args.option in ["generate","g"]:
 		if args.length == None:
 			printc("[red][+][/red] Specify length of the password to generate (--length)")
 			return
-		password = utils.generate.generatePassword(args.length)
+		password = generate.generatePassword(args.length)
 		pyperclip.copy(password)
 		printc("[green][+][/green] Password generated and copied to clipboard")
 
