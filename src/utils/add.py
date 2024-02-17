@@ -8,7 +8,7 @@ from Crypto.Random import get_random_bytes
 import base64
 
 from rich import print as printc
-from rich.console import Console
+from rich.console import console
 
 def computeMasterKey(mp, ds):
     password = mp.encode()
