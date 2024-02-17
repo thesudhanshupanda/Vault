@@ -1,5 +1,5 @@
-from dbconfig import dbconfig
 import aesutil
+from utils.dbconfig import dbconfig
 import pyperclip
 
 from Crypto.Protocol.KDF import PBKDF2
